@@ -1,0 +1,23 @@
+[user]
+	email = xiongwe@amazon.com
+	name = Roman Wang 
+[color]
+	ui = auto
+[core]
+	pager = less -FMRiX
+	editor = /usr/bin/vim
+	excludesfile = /Users/xiongwe/.gitignore_global
+[push]
+	default = simple
+[alias]
+    dag = log --graph --exclude=refs/stash --format='format:%C(yellow)%h%C(reset) %C(blue)\"%an\" <%ae>%C(reset) %C(magenta)%cr%C(reset)%C(auto)%d%C(reset)%n%s' --date-order
+	co = checkout
+	br = branch
+	cm = commit
+	st = status
+[amazon]
+	append-cr-url = true
+	pull-request-by-default = false
+[credential]
+	helper = !aws codecommit credential-helper $@
+	UseHttpPath = true
