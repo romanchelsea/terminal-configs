@@ -3,18 +3,17 @@ if [ -f ~/.bashrc ]; then
         . ~/.bashrc
 fi
 
-# User specific environment and startup programs
-
 alias vim='vi'
 alias ll='ls -la'
 
+# User specific environment and startup programs
 
 # System Path
 PATH="$PATH:$HOME/bin"
 
 # This directory exist in Vagrant VM
 if [ -d /home/vagrant/.local/bin ]; then
-    PATH="$PATH:/home/vagrant/.local/bin"
+  PATH="$PATH:/home/vagrant/.local/bin"
 fi
 
 # export PATH=/Users/xiongwe/homebrew/bin:$PATH
@@ -24,11 +23,12 @@ export PATH
 
 # The /usr/libexec/java_home does not exist in CentOS
 if [ $(uname -r) !=  "2.6.32-358.23.2.el6.x86_64" ]; then
-    export JAVA_HOME=$(/usr/libexec/java_home -v 1.8) # JAVA_HOME
+  export JAVA_HOME=$(/usr/libexec/java_home -v 1.8) # JAVA_HOME
 else
-    # source scl installed software
-    source /opt/rh/rh-python36/enable
-    source /opt/rh/rh-git29/enable
+  # CentOS
+  # source scl installed software
+  source /opt/rh/rh-python36/enable
+  source /opt/rh/rh-git29/enable
 fi
 
 
@@ -66,7 +66,7 @@ export COLOR_LIGHT_GRAY='\e[0;37m'
 UC=$COLOR_CYAN               # user's color
 [ $UID -eq "0"  ] && UC=$COLOR_RED   # root's color
 
-PS1="\[${UC}\]\u \[${COLOR_LIGHT_BLUE}\]\w \[${COLOR_LIGHT_PURPLE}\]=>\[${COLOR_NC}\] "  
+PS1="\[${UC}\]\u \[${COLOR_LIGHT_BLUE}\]\w \[${COLOR_LIGHT_PURPLE}\]=>\[${COLOR_NC}\] "
 
 
 # Third party software
