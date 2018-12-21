@@ -1,12 +1,12 @@
 [user]
-	email = xiongwe@amazon.com
+	email = romanwang888@gmail.com 
 	name = Roman Wang 
 [color]
 	ui = auto
 [core]
 	pager = less -FMRiX
 	editor = /usr/bin/vim
-	excludesfile = /Users/xiongwe/.gitignore_global
+	excludesfile = $HOME/.gitignore_global
 [push]
 	default = simple
 [alias]

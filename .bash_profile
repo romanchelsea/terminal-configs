@@ -1,32 +1,42 @@
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.8) # JAVA_HOME
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+        . ~/.bashrc
+fi
 
-export PATH="/apollo/env/SDETools/bin:$PATH"
-export PATH="/Users/xiongwe/bin:$PATH"										# crux
-export PATH="/Users/xiongwe/workplace/xiongwe-home-dir/src/XiongweHomeDir/ruby-bin:$PATH"			# xiongwe scripts
-export PATH="/Users/xiongwe/workplace/xiongwe-home-dir/src/XiongweHomeDir/bash-bin:$PATH"			# xiongwe scripts
+# User specific environment and startup programs
 
-export LPT="/Users/xiongwe/Documents/workspace/workplace/xiongwe/xiongwe-lpt/src"
+alias vim='vi'
+alias ll='ls -la'
 
-# Brazil Workspaces
-export BWS="/Users/xiongwe/workplace"
+
+# System Path
+PATH="$PATH:$HOME/bin"
+
+# This directory exist in Vagrant VM
+if [ -d /home/vagrant/.local/bin ]; then
+    PATH="$PATH:/home/vagrant/.local/bin"
+fi
+
+# export PATH=/Users/xiongwe/homebrew/bin:$PATH
+
+export PATH
+
+
+# The /usr/libexec/java_home does not exist in CentOS
+if [ $(uname -r) !=  "2.6.32-358.23.2.el6.x86_64" ]; then
+    export JAVA_HOME=$(/usr/libexec/java_home -v 1.8) # JAVA_HOME
+else
+    # source scl installed software
+    source /opt/rh/rh-python36/enable
+    source /opt/rh/rh-git29/enable
+fi
+
+
 # Colors configuration for gruvbox
-source "/Users/xiongwe/.vim/bundle/gruvbox/gruvbox_256palette_osx.sh"
+# source "/Users/xiongwe/.vim/bundle/gruvbox/gruvbox_256palette_osx.sh"
 
 # RVM
-source ~/.profile
-
-alias bb='brazil-build'
-alias bp='brazil-path'
-alias ll='ls -la'
-alias bws='brazil ws'
-alias sam='brazil-build-tool-exec sam'
-
-# Connect to my EC2 Cloud DevDesktop
-alias bro='ssh dev'
-alias dev='ssh gia'
-
-alias python='python3.6'
-alias pip='pip3.6'
+# source ~/.profile
 
 export LESS="-CQaix4"
 
@@ -58,15 +68,10 @@ UC=$COLOR_CYAN               # user's color
 
 PS1="\[${UC}\]\u \[${COLOR_LIGHT_BLUE}\]\w \[${COLOR_LIGHT_PURPLE}\]=>\[${COLOR_NC}\] "  
 
-export PATH=/Users/xiongwe/homebrew/bin:$PATH
-export PATH=/Users/xiongwe/.toolbox/bin:$PATH
 
-export PATH
+# Third party software
 
-# Dia.app
-export DISPLAY=:0
-
-if [ -f $(brew --prefix)/etc/bash_completion  ]; then
+if $(brew 2>/dev/null) && [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
 fi
 
