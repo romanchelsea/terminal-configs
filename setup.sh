@@ -20,3 +20,7 @@ fi
 
 ln -s $TERMINAL_CONFIG/.gitconfig .gitconfig
 ln -s $TERMINAL_CONFIG/.gitignore_global .gitignore_global
+
+printf "Configuring bash profile...\n\n"
+[ -r .bash_profile ] && rm .bash_profile
+ln -s $TERMINAL_CONFIG/.bash_profile .
