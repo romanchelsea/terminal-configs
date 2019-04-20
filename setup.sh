@@ -19,3 +19,4 @@ if [ -r .gitconfig ]; then
 fi
 
 ln -s $TERMINAL_CONFIG/.gitconfig .gitconfig
+ln -s $TERMINAL_CONFIG/.gitignore_global .gitignore_global
